@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 double num1 = Double.parseDouble(mFirstNumber.getText().toString());
                 double num2 = Double.parseDouble(mSecondNumber.getText().toString());;
                 double sum = num1 * num2;
-                mAddResult.setText(Double.toString(sum));
+                mAddResult.setText("$" + Double.toString(sum));
             }
         });
 

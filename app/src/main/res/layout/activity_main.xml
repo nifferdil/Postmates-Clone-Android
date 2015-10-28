@@ -65,17 +65,17 @@
         android:layout_above="@+id/logoutButton"
         android:layout_toStartOf="@+id/logoutButton"
         android:layout_marginBottom="36dp"
-        />
+        android:textSize="18sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total:  $"
+        android:text="Total:"
         android:id="@+id/textView2"
-        android:layout_toStartOf="@+id/addResult"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="31dp"
+        android:textSize="18sp"
         android:layout_alignTop="@+id/addResult"
-        android:layout_alignBottom="@+id/addResult"/>
+        android:layout_toStartOf="@+id/addResult"/>
 
     <EditText
         android:layout_width="fill_parent"
