@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity"
+                android:background="#acbbb7d8">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:id="@+id/logoutButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Create Your Order"
+        android:gravity="center"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:hint="Type item to order"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="29dp"
+        android:layout_margin="10sp"
+        android:background="@android:color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Custom Order:"
+        android:id="@+id/textView"
+        android:textSize="20sp"
+        android:layout_below="@+id/editText"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Total"
+        android:id="@+id/getTotalButton"
+        android:layout_above="@+id/logoutButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="97dp"
+        android:background="#be7ee2d7"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/addResult"
+        android:layout_above="@+id/logoutButton"
+        android:layout_toStartOf="@+id/logoutButton"
+        android:layout_marginBottom="36dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total:  $"
+        android:id="@+id/textView2"
+        android:layout_toStartOf="@+id/addResult"
+        android:layout_marginEnd="48dp"
+        android:layout_alignTop="@+id/addResult"
+        android:layout_alignBottom="@+id/addResult"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNumber1"
+        android:hint="Type quantity"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10sp"
+        android:background="@android:color/white"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNumber2"
+        android:hint="Type price"
+        android:layout_below="@+id/txtNumber1"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10sp"
+        android:layout_marginBottom="30sp"
+        android:background="@android:color/white"/>
+
+</RelativeLayout>
