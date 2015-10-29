@@ -5,11 +5,13 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
+import java.io.Serializable;
+
 /**
  * Created by Guest on 10/28/15.
  */
 @Table (name = "Users", id = "_id")
-public class User extends Model {
+public class User extends Model implements Serializable {
     @Column (name = "Username")
     private String mUsername;
 

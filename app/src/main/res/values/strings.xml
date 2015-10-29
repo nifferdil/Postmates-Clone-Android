@@ -13,4 +13,5 @@
     <string name="generic_error_title">Oops!</string>
     <string name="login_error_message">Please enter a valid username and password.</string>
     <string name="title_activity_order">Orders</string>
+    <string name="title_activity_completed_order">Completed Orders</string>
 </resources>

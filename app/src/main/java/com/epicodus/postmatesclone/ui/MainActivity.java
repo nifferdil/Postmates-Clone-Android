@@ -17,9 +17,10 @@ import com.epicodus.postmatesclone.R;
 import com.epicodus.postmatesclone.models.Order;
 import com.epicodus.postmatesclone.models.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable{
 
     private SharedPreferences mPreferences;
     private User mUser;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mAddResult;
     private TextView mLoggedInView;
     private Button mSubmitOrderButton;
+    private Button mViewOrderHistoryButton;
     private ArrayList<Order> mOrders;
 
     @Override
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         mAddResult = (TextView) findViewById(R.id.addResult);
         mLoggedInView = (TextView) findViewById(R.id.loggedInView);
         mSubmitOrderButton = (Button) findViewById(R.id.submitOrderButton);
+        mViewOrderHistoryButton = (Button) findViewById(R.id.viewOrderHistoryButton);
         mOrders = (ArrayList) Order.all();
 
         mGetTotalButton.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +83,17 @@ public class MainActivity extends AppCompatActivity {
                 String orderContent = mOrderText.getText().toString();
                 Order order = new Order(orderContent, mUser);
                 order.save();
-                mOrders.add(order);
+                Intent intent = new Intent(MainActivity.this, CompletedOrderActivity.class);
+                startActivity(intent);
+            }
+        });
 
-                mOrderText.setText("");
+        mViewOrderHistoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+                intent.putExtra("User", mUser);
+                startActivity(intent);
             }
         });
 
