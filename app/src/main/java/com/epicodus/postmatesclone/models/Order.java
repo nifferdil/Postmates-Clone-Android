@@ -1,64 +1,68 @@
 package com.epicodus.postmatesclone.models;
 
+import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
 
 /**
  * Created by Guest on 10/28/15.
  */
 @Table (name = "Orders", id = "_id")
-public class Order {
-    @Column (name = "Item")
-    private String item;
+public class Order extends Model {
+    @Column(name = "Content")
+    private String mContent;
 
-    @Column (name = "Quantity")
-    private int quantity;
+    @Column(name = "CreatedAt")
+    private long mCreatedAt;
 
-    @Column (name = "Price")
-    private int price;
-
-    @Column (name = "Total")
-    private int total;
+    @Column(name = "User")
+    private User mUser;
 
     public Order() {
         super();
     }
 
-    public Order(String item, int quantity, int price, int total) {
-        this.item = item;
-        this.quantity = quantity;
-        this.price = price;
-        this.total = total;
+    public Order(String orderContent, User user) {
+        mContent = orderContent;
+        mCreatedAt = new Date().getTime();
+        mUser = user;
     }
 
-    public String getItem() {
-        return item;
+    public String getContent() {
+        return mContent;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setContent(String orderContent) {
+        mContent = orderContent;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public long getCreatedAt() {
+        return mCreatedAt;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public User getUser() {
+        return mUser;
     }
 
-    public int getPrice() {
-        return price;
+    public void setUser(User user) {
+        mUser = user;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-    public int getTotal() {
-        return total;
+    public String getFormattedTime(){
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMMM d 'at' h:mm");
+        formatter.setTimeZone(TimeZone.getTimeZone("America/Los Angeles"));
+        return formatter.format(mCreatedAt);
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public static List<Order> all() {
+        return new Select()
+                .from(Order.class)
+                .execute();
     }
 }

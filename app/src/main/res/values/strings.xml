@@ -12,4 +12,5 @@
     <string name="signup_label">Don\'t have an account? Sign up here!</string>
     <string name="generic_error_title">Oops!</string>
     <string name="login_error_message">Please enter a valid username and password.</string>
+    <string name="title_activity_order">Orders</string>
 </resources>

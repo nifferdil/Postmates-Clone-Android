@@ -10,6 +10,7 @@
                 android:background="#acbbb7d8">
 
     <Button
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log Out"
@@ -29,12 +30,12 @@
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/orderText"
         android:hint="Type item to order"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="29dp"
-        android:layout_margin="10sp"
+        android:layout_margin="6sp"
         android:background="@android:color/white"/>
 
     <TextView
@@ -53,19 +54,23 @@
         android:layout_height="wrap_content"
         android:text="Get Total"
         android:id="@+id/getTotalButton"
-        android:layout_above="@+id/logoutButton"
+        android:background="#be7ee2d7"
+        android:layout_below="@+id/txtNumber2"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="97dp"
-        android:background="#be7ee2d7"/>
+        android:layout_marginTop="6sp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addResult"
-        android:layout_above="@+id/logoutButton"
+        android:textSize="18sp"
+        android:text="price"
+        android:layout_below="@+id/getTotalButton"
+        android:layout_toLeftOf="@+id/logoutButton"
         android:layout_toStartOf="@+id/logoutButton"
-        android:layout_marginBottom="36dp"
-        android:textSize="18sp"/>
+        android:layout_marginTop="27dp"
+        android:textColor="@android:color/black"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,16 +80,17 @@
         android:layout_marginEnd="31dp"
         android:textSize="18sp"
         android:layout_alignTop="@+id/addResult"
-        android:layout_toStartOf="@+id/addResult"/>
+        android:layout_toStartOf="@+id/addResult"
+        android:textStyle="bold"/>
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtNumber1"
         android:hint="Type quantity"
-        android:layout_below="@+id/editText2"
+        android:layout_below="@+id/orderText"
         android:layout_alignParentStart="true"
-        android:layout_margin="10sp"
+        android:layout_margin="6sp"
         android:background="@android:color/white"/>
 
     <EditText
@@ -94,8 +100,41 @@
         android:hint="Type price"
         android:layout_below="@+id/txtNumber1"
         android:layout_alignParentStart="true"
-        android:layout_margin="10sp"
+        android:layout_margin="6sp"
         android:layout_marginBottom="30sp"
         android:background="@android:color/white"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You are logged in as "
+        android:id="@+id/loggedInView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/txtNumber2"
+        android:layout_alignStart="@+id/txtNumber2"
+        android:textSize="14sp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Order"
+        android:id="@+id/submitOrderButton"
+        android:background="#fac45b"
+        android:layout_below="@+id/addResult"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="6sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Order History"
+        android:id="@+id/viewOrderHistoryBtton"
+        android:layout_above="@+id/logoutButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:background="#be7ee2d7"/>
 
 </RelativeLayout>

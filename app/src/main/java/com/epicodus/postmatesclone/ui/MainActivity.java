@@ -14,7 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.postmatesclone.R;
+import com.epicodus.postmatesclone.models.Order;
 import com.epicodus.postmatesclone.models.User;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,9 +25,13 @@ public class MainActivity extends AppCompatActivity {
     private User mUser;
     private Button mLogoutButton;
     private Button mGetTotalButton;
+    private EditText mOrderText;
     private EditText mFirstNumber;
     private EditText mSecondNumber;
     private TextView mAddResult;
+    private TextView mLoggedInView;
+    private Button mSubmitOrderButton;
+    private ArrayList<Order> mOrders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +42,12 @@ public class MainActivity extends AppCompatActivity {
         mLogoutButton = (Button) findViewById(R.id.logoutButton);
         mFirstNumber = (EditText) findViewById(R.id.txtNumber1);
         mSecondNumber = (EditText) findViewById(R.id.txtNumber2);
+        mOrderText = (EditText) findViewById(R.id.orderText);
         mGetTotalButton = (Button) findViewById(R.id.getTotalButton);
         mAddResult = (TextView) findViewById(R.id.addResult);
-
+        mLoggedInView = (TextView) findViewById(R.id.loggedInView);
+        mSubmitOrderButton = (Button) findViewById(R.id.submitOrderButton);
+        mOrders = (ArrayList) Order.all();
 
         mGetTotalButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 double num1 = Double.parseDouble(mFirstNumber.getText().toString());
                 double num2 = Double.parseDouble(mSecondNumber.getText().toString());;
                 double sum = num1 * num2;
-                mAddResult.setText("$" + Double.toString(sum));
+                mAddResult.setText("$" + String.format("%.2f", sum));
             }
         });
 
@@ -63,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        mSubmitOrderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String orderContent = mOrderText.getText().toString();
+                Order order = new Order(orderContent, mUser);
+                order.save();
+                mOrders.add(order);
+
+                mOrderText.setText("");
+            }
+        });
+
+        mLoggedInView.setText("You are logged in as " + mUser.getUsername());
     }
 
     private boolean isRegistered() {
